@@ -1,0 +1,34 @@
+[project]
+name = "latency-arbitrage-simulator"
+version = "0.1.0"
+description = "Simulating and analyzing latency arbitrage scenarios in trading environments"
+authors = [
+    {name = "Gabriella M. Mansur", email = "gabmansur@gmail.com"}
+]
+readme = "README.md"
+requires-python = "^3.11"
+dependencies = [
+    "numpy (>=2.3.0,<3.0.0)",
+    "pandas (>=2.3.0,<3.0.0)",
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "scikit-learn (>=1.7.0,<2.0.0)",
+    "plotly (>=6.1.2,<7.0.0)",
+    "simpy (>=4.1.1,<5.0.0)",
+    "streamlit (>=1.46.0,<2.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+packages = [
+    { include = "simulator", from = "src" }
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+jupyter = "^1.1.1"
+black = "^25.1.0"
+isort = "^6.0.1"
