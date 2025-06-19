@@ -7,6 +7,8 @@ This project simulates how latency arbitrage works, where traders exploit small 
 
 As someone who's dabbled in the degenerate jungle of shitcoin trading, I know first-hand the heartbreak of slow fills and slippage that eats your soul. This simulator is my nerdy revenge: a way to model, visualize and outsmart the latency gods (suck it, Jaredfromsubway)
 
+![image](https://github.com/user-attachments/assets/b3698f1c-3ca6-4f23-ae9a-5107f064725f)
+
 We’ll explore:
 
 - How microseconds can separate winners from bagholders
