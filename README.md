@@ -24,7 +24,7 @@ Here's how the simulation will evolve over time. Each phase introduces additiona
 - [ ] Lose my mind and question my whole existance at 2am
 - [ ] Output trades, latencies, and results to dataframes
 
-### Phase 2: 📊 Visualization + Analytics
+### Phase 2: Visualization + Analytics
 - [ ] Add visualizations with `plotly` & `streamlit`
 - [ ] Real-time dashboard showing trade activity, PnL, latency gaps
 - [ ] Metrics around win/loss rate, execution speed, and opportunity frequency
@@ -67,6 +67,6 @@ latency-arbitrage-simulator/
 I created this as part of a tailored application to demonstrate my skills in simulation modeling, trading systems, and creative problem solving. It’s a way to shocase my passion (obsession?) with building it from scratch, asking questions, spiralling occasionally, and designing things that are beautiful and insightful. It’s my version of a digital playground. Somehow I still manage to work out 6 days a week...
 
 ##  Want to Collaborate or Hire Me?
-I’m Gabriella Mansur — a mechanical engineer turned data engineer turned crypto degen turned god knows what, creative problem solver, and endlessly curious mind. HMU! (just never call me pls) [LinkedIn](https://linkedin.com/in/gabriellamansur)
+I’m Gabriella Mansur — a mechanical engineer turned data engineer turned crypto degen turned god knows what, creative problem solver, and endlessly curious mind. HMU! (by text or mail - im still a millennial and weirdly terrified of unexpected calls) [LinkedIn](https://linkedin.com/in/gabriellamansur)
 
 Disclaimer: No actual shitcoins were harmed in the making of this repo.
