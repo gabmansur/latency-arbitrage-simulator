@@ -100,13 +100,13 @@ latency-arbitrage-simulator/
 ### Experiments/Future
 If I had infinite time, coffee, and no cats to serve, here’s what I’d build:
 
-- **Add more exchange types:** Not just Binance and Coinbase—bring on DEXs, CEXs, meme fantasy venues, even fake “GoblinSwap” because why tf not
+- **Add more exchange types:** Not just Binance and Coinbase; bring on DEXs, CEXs, meme fantasy venues, even fake “GoblinSwap” because why tf not
 - **Multi-agent tournaments:** Let *multiple* bots with different strategies compete, cooperate, or sabotage each other. hehe
 - **Plug in real data feeds:** Replace the synthetic price generator with actual exchange tick data for true market conditions.
 - **Machine learning strategies:** Bots that *learn* from experience, tuning their own latency, greed, or reaction time (reinforcement learning? someday...).
-- **Visualize missed opportunities and order failures:** Not just wins—show where the bot almost made a trade but missed, or when latency ruined the fun.
+- **Visualize missed opportunities and order failures:** Not just wins but also show where the bot almost made a trade but missed, or when latency ruined the fun.
 - **Order book and depth simulation:** Model slippage, partial fills, spoofing, and other real market microstructure details.
-- **P&L attribution and analytics:** Show where profits really come from—speed, luck, market conditions, or pure ✨goblin magic✨.
+- **P&L attribution and analytics:** Show where profits really come from: speed? luck? market conditions? or pure ✨goblin magic✨?
 - **User-customizable agent logic:** Let users code their own bots in a safe, sandboxed way.
 
 *Let me know if you want to collab or see any of these features!*
