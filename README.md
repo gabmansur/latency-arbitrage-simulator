@@ -6,6 +6,8 @@ A playful, slightly unhinged simulation lab for exploring and visualizing **late
 [Try the live dashboard!](https://latency-arbitrage-simulator.streamlit.app/)  
 *Or clone and run locally for max goblin power.*
 
+<img src="tom.png" alt="my basement goblin" width="150"/>
+
 
 ## What is this? (Explain Like I'm 5)
 
@@ -93,7 +95,7 @@ latency-arbitrage-simulator/
 - [x] ELI5/dummy mode instructions
 
 ### Experiments/Future
-If I had infinite time, coffee, and no cats to serve, here’s what I’d build:
+If I had infinite time, coffee, and not busy developing Flappy Tom (yes), here’s what I’d build:
 
 - **Add more exchange types:** Not just Binance and Coinbase; bring on DEXs, CEXs, meme fantasy venues, even fake “GoblinSwap” because why tf not
 - **Multi-agent tournaments:** Let *multiple* bots with different strategies compete, cooperate, or sabotage each other. hehe
@@ -105,6 +107,13 @@ If I had infinite time, coffee, and no cats to serve, here’s what I’d build:
 - **User-customizable agent logic:** Let users code their own bots in a safe, sandboxed way.
 
 *Let me know if you want to collab or see any of these features!*
+
+Also - I was serious about Flappy Tom.
+
+<img src="flappytom.png" alt="flappy tom" width="250"/>
+
+
+
 
 ## Why This Project?
 
