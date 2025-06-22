@@ -6,7 +6,6 @@ A playful, slightly unhinged simulation lab for exploring and visualizing **late
 [Try the live dashboard!](https://latency-arbitrage-simulator.streamlit.app/)  
 *Or clone and run locally for max goblin power.*
 
----
 
 ## What is this? (Explain Like I'm 5)
 
@@ -15,7 +14,6 @@ If you spot that Stand A is selling lemonade cheaper than Stand B, you could buy
 **Unless you're too slow, and prices change before you finish!**  
 Your job: tune your bot, hit simulate, and see if you’re a market wizard or just lemonade dust.
 
----
 
 ## How to Use
 
@@ -33,7 +31,6 @@ Your job: tune your bot, hit simulate, and see if you’re a market wizard or ju
 - Read meme-level market “wisdom” in real-time.
 - Laugh, cry, try again.
 
----
 
 ## Project Features
 
@@ -48,7 +45,6 @@ Your job: tune your bot, hit simulate, and see if you’re a market wizard or ju
   - Degen vibes, meme images, and random goblin commentary
 - **Code is readable and hackable** — build your own strategies, add more exchanges, go nuts.
 
----
 
 ## Project Structure
 
@@ -81,7 +77,6 @@ latency-arbitrage-simulator/
 - **Poetry** — dependency management (because I’m allergic to requirements.txt bs)
 - **Jupyter** (optional), for exploratory nerding
 
----
 
 ## Roadmap
 
@@ -110,14 +105,12 @@ If I had infinite time, coffee, and no cats to serve, here’s what I’d build:
 - **User-customizable agent logic:** Let users code their own bots in a safe, sandboxed way.
 
 *Let me know if you want to collab or see any of these features!*
----
 
 ## Why This Project?
 
 I built this as a public playground to show off my simulation modeling, trading systems, and creative approach to coding and dashboards (and also to cope with the trauma of missed trades and rekt bags).  
 It’s equal parts nerdy flex, learning experiment, and meme-powered demo.
 
----
 
 ## About Me
 
@@ -127,10 +120,7 @@ I love turning chaos into structured, explorable, and beautiful things that help
 
 *Disclaimer: No real money, assets, or meme coins are at risk. All pain is simulated. All wins are virtual. All fun is real.*
 
----
 
 ## Meme Gallery
 
 ![nyan cat](https://media.tenor.com/rI_0O_9AJ5sAAAAj/nyan-cat-poptart-cat.gif)
-
----
