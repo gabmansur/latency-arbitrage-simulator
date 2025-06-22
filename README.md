@@ -7,6 +7,8 @@ This project simulates how latency arbitrage works, where traders exploit small 
 
 As someone who's dabbled in the degenerate jungle of shitcoin trading, I know first-hand the heartbreak of slow fills and slippage that eats your soul. This simulator is my nerdy revenge: a way to model, visualize and outsmart the latency gods (suck it, Jaredfromsubway)
 
+![image](https://github.com/user-attachments/assets/b3698f1c-3ca6-4f23-ae9a-5107f064725f)
+
 We’ll explore:
 
 - How microseconds can separate winners from bagholders
@@ -65,6 +67,8 @@ latency-arbitrage-simulator/
 
 ##  Why This Project?
 I created this as part of a tailored application to demonstrate my skills in simulation modeling, trading systems, and creative problem solving. It’s a way to shocase my passion (obsession?) with building it from scratch, asking questions, spiralling occasionally, and designing things that are beautiful and insightful. It’s my version of a digital playground. Somehow I still manage to work out 6 days a week...
+
+![image](https://github.com/user-attachments/assets/1f9295cb-0bc4-44c1-9721-db524c257df4)
 
 ##  Want to Collaborate or Hire Me?
 I’m Gabriella Mansur — a mechanical engineer turned data engineer turned crypto degen turned god knows what, creative problem solver, and endlessly curious mind. HMU! (by text or mail - im still a millennial and weirdly terrified of unexpected calls) [LinkedIn](https://linkedin.com/in/gabriellamansur)
