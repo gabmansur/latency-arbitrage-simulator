@@ -66,6 +66,14 @@ with st.expander("🍼 Explain Like I'm 5 (The Real Dummy Guide)"):
     > 🦄 **Try it! Play with the sliders. Hit ‘Run Simulation’. See if you get rich or rekt!**
     """)
 
+with st.expander("🧙‍♀️ What's 'Win Rate' and why should I care?"):
+    st.markdown("""
+    **Win Rate** is how often your bot actually succeeds when it tries an arbitrage.
+    - If your bot has a 100% win rate, it always snipes the trade (like a market wizard 🧙‍♂️).
+    - If it's lower, sometimes it loses because the opportunity disappears (prices change, bots are slow, or you got frontrun).
+    - In real markets, success is never guaranteed, and sometimes, even the fastest bots lose.
+    """)
+
 
 # ---  Connected "How to Play" + Dummy Guide + Run Button ---
 with st.container():
@@ -109,10 +117,34 @@ with st.sidebar:
         f"{exchange_2_name} Latency (ms)", 0, 500, 150,
         help=f"How slow is {exchange_2_name}? Sometimes lag is your friend!"
     )
-    win_rate = st.slider(
-    "Win Rate (%)", 50, 100, 90,
-    help="Simulate what percentage of trades your bot actually wins (rest are fails)."
+
+    win_rate_mode = st.selectbox(
+        "Bot Win Rate Mode",
+        [
+            "Always Win (100%)",
+            "Random Win Rate (50-100%)",
+            "Set Custom (%)"
+        ],
+        help="""
+            How often your bot actually 'wins' the trade:
+            - 100% = Theoretical perfect arbitrage (God Mode).
+            - Random = Simulates real-world chaos (sometimes you snipe, sometimes you get rekt!).
+            - Custom = You choose the win probability (more risk, more fun).
+            In real life, even 'riskless' arb can lose due to delays, failures, or sneaky competitors.
+        """
     )
+
+    if win_rate_mode == "Set Custom (%)":
+        win_rate = st.slider(
+            "Win Rate (%)",
+            50, 100, 90,
+            help="How often your bot succeeds when it spots a trade. Lower win rate = more failed trades (and tears)."
+        )
+    elif win_rate_mode == "Always Win (100%)":
+        win_rate = 100
+    else:
+        win_rate = random.randint(50, 100)
+
     threshold = st.slider(
         "Arbitrage Threshold ($)", 0.01, 2.0, 0.5,
         help="Min price gap for your bot to act. Low = aggressive, high = cautious."
