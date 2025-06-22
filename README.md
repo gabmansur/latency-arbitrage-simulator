@@ -1,9 +1,9 @@
 # Latency Arbitrage Simulator 🦄⚡
 
 Welcome to the Latency Arbitrage Simulator!  
-A playful, slightly unhinged simulation lab for exploring and visualizing **latency arbitrage** in electronic trading. Here, you get to tinker with bot speed, market delays, reaction time, and win rate — and try to outsmart the market before the market eats you alive.
+A playful, slightly unhinged simulation lab for exploring and visualizing **latency arbitrage** in electronic trading. Here, you get to tinker with bot speed, market delays, reaction time, and win rate, and try to outsmart the market before the market eats you alive.
 
-[Try the live dashboard!)](https://latency-arbitrage-simulator.streamlit.app/)  
+[Try the live dashboard!](https://latency-arbitrage-simulator.streamlit.app/)  
 *Or clone and run locally for max goblin power.*
 
 ---
@@ -69,6 +69,7 @@ latency-arbitrage-simulator/
 ├── poetry.lock
 ├── pyproject.toml
 └── README.md
+```
 
 ## Tech Stack
 
@@ -77,8 +78,8 @@ latency-arbitrage-simulator/
 - **Streamlit** — interactive dashboard UI
 - **Plotly** — fun, interactive charts
 - **Pandas** — results wrangling, dataframes, CSV downloads
-- **Poetry** — dependency management (because I’m allergic to requirements.txt chaos)
-- **Jupyter** (optional) — for exploratory nerding
+- **Poetry** — dependency management (because I’m allergic to requirements.txt bs)
+- **Jupyter** (optional), for exploratory nerding
 
 ---
 
