@@ -202,18 +202,18 @@ if run and results and len(results) > 0:
     biggest_loss = df['pnl'].min()
 
     colA, colB, colC, colD, colE = st.columns(5)
-    colA.metric("Total Trades", total_trades)
-    colB.metric("Total PnL ($)", f"{total_pnl:.4f}")
-    colC.metric("Avg Latency (s)", f"{avg_latency:.3f}")
-    colD.metric("Biggest Win ($)", f"{biggest_win:.3f}")
-    colE.metric("Win Rate (%)", f"{win_rate:.1f}")
+    colA.metric("Total Trades", total_trades, help="How many times your bot found an arbitrage opportunity.")
+    colB.metric("Total PnL ($)", f"{total_pnl:.4f}", help="Profit and Loss – positive is good, negative is tears.")
+    colC.metric("Avg Latency (s)", f"{avg_latency:.3f}", help="How long it takes (on average) for your trades to execute.")
+    colD.metric("Biggest Win ($)", f"{biggest_win:.3f}", help="Your juiciest trade—bragging rights.")
+    colE.metric("Win Rate (%)", f"{win_rate:.1f}", help="Percent of trades that were winners. Higher = better bot!")
 
     # Side by side plots
     c1, c2 = st.columns(2)
     with c1:
         st.plotly_chart(
             px.line(df, y="pnl", title="PnL per Trade", labels={"pnl": "Profit/Loss ($)"}),
-            use_container_width=True
+            use_container_width=True, help="Shows profit/loss for each trade. Peaks = wins, dips = pain."
         )
     with c2:
         st.plotly_chart(
@@ -223,17 +223,6 @@ if run and results and len(results) > 0:
 
     # Table
     st.dataframe(df.style.background_gradient(axis=0, cmap="RdYlGn"), height=400)
-
-    # Insights/explanations section
-    with st.expander("📖 What do these numbers mean?"):
-        st.markdown("""
-        - **Total Trades**: How many times your bot found an opportunity.
-        - **PnL**: Profit and Loss (the goal is to print money, not burn it).
-        - **Avg Latency**: How slow/fast your bot is.
-        - **Biggest Win/Loss**: Your best and worst moments.
-        - **Win Rate**: % of trades that were positive.
-        - If PnL is red, maybe try tuning latency or reaction time!
-        """)
 
     # Download
     st.download_button(
