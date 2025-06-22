@@ -36,8 +36,7 @@ class LatencyArbitrageSimulator:
             name="FastGabiBot",
             exchanges=self.exchanges,
             latency_matrix=latency_matrix,
-            reaction_time=self.config["agent"].get("reaction_time", 1),
-            threshold=self.config["agent"].get("threshold", 0.2),
+            config=self.config["agent"],
             results=self.results,
         )
 

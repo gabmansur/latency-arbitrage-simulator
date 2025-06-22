@@ -7,10 +7,10 @@ class ArbitrageAgent:
         self.name = name
         self.exchanges = exchanges
         self.latency_matrix = latency_matrix
-        self.reaction_time = config.get("reaction_time", 0.1)
         self.threshold = config.get("price_diff_threshold", 0.2)
-        self.results = results if results is not None else []
+        self.reaction_time = config.get("reaction_time", 0.1)
         self.win_rate = config.get("win_rate", 0.9)
+        self.results = results if results is not None else []
         self.env.process(self.run())
 
     def observe_prices(self):

@@ -1,76 +1,129 @@
-# Latency Arbitrage Simulator
+# Latency Arbitrage Simulator 🦄⚡
 
-Welcome to the Latency Arbitrage Simulator! A playful yet powerful simulation project which Im designing to explore and analyze latency arbitrage strategies in electronic trading environments. Say its a personal lab for understanding how tiny time differences can drive profit in fast-paced financial markets
+Welcome to the Latency Arbitrage Simulator!  
+A playful, slightly unhinged simulation lab for exploring and visualizing **latency arbitrage** in electronic trading. Here, you get to tinker with bot speed, market delays, reaction time, and win rate — and try to outsmart the market before the market eats you alive.
 
-## Purpose
-This project simulates how latency arbitrage works, where traders exploit small delays in market data across exchanges to execute faster trades and lock in profits. Especially relevant in high-frequency trading (HFT), and more broadly in the wild world of crypto where MEV bots, sandwich attacks, and frontrunning shenanigans are part of your daily breakfast (been there, done that 🤡)
+[Try the live dashboard!)](https://latency-arbitrage-simulator.streamlit.app/)  
+*Or clone and run locally for max goblin power.*
 
-As someone who's dabbled in the degenerate jungle of shitcoin trading, I know first-hand the heartbreak of slow fills and slippage that eats your soul. This simulator is my nerdy revenge: a way to model, visualize and outsmart the latency gods (suck it, Jaredfromsubway)
+---
 
-![image](https://github.com/user-attachments/assets/b3698f1c-3ca6-4f23-ae9a-5107f064725f)
+## What is this? (Explain Like I'm 5)
 
-We’ll explore:
+Imagine you have two lemonade stands (exchanges). They both sell lemonade, but sometimes they change prices at different times.  
+If you spot that Stand A is selling lemonade cheaper than Stand B, you could buy from A and *immediately* sell to B for a profit...  
+**Unless you're too slow, and prices change before you finish!**  
+Your job: tune your bot, hit simulate, and see if you’re a market wizard or just lemonade dust.
 
-- How microseconds can separate winners from bagholders
-- Simulating synthetic latency across multiple exchanges
-- Designing agent-based strategies that react fast (like, really fast)
-- Logging and visualizing trade outcomes, decision speed and PnL curves
+---
 
-## Project Roadmap
-Here's how the simulation will evolve over time. Each phase introduces additional realism, complexity, and fun:
+## How to Use
 
-### Phase 1: Core Infrastructure
-- [x] Set up repo with `poetry`, `pyproject.toml`, clean file structure
-- [ ] Simulate two exchanges with artificial latency using `SimPy`
-- [ ] Create agents that can detect and act on arbitrage opportunities
-- [ ] Lose my mind and question my whole existance at 2am
-- [ ] Output trades, latencies, and results to dataframes
+**1. Set your simulation parameters in the sidebar:**
+- Exchange names and individual latency (ms)
+- Minimum price difference (arb threshold)
+- Bot’s reaction speed (ms)
+- Win rate (simulate market failures)
+- Total simulation run time (seconds)
 
-### Phase 2: Visualization + Analytics
-- [ ] Add visualizations with `plotly` & `streamlit`
-- [ ] Real-time dashboard showing trade activity, PnL, latency gaps
-- [ ] Metrics around win/loss rate, execution speed, and opportunity frequency
+**2. Smash that "Run Simulation" button.**  
+**3. Watch the charts and stats update live:**
+- See your trades, win/loss, average latency, and cumulative profit.
+- Download the results as CSV.
+- Read meme-level market “wisdom” in real-time.
+- Laugh, cry, try again.
 
-### Phase 3: Strategy Experiments
-- [ ] Add parameter tuning (latency gaps, strategy thresholds)
-- [ ] Compare passive vs. aggressive arbitrage approaches
-- [ ] Add exchange simulation variance (jitter, downtime)
+---
 
-### Phase 4: ML Exploration (Pray I reach this phase)
-- [ ] Use simple ML models to predict latency windows
-- [ ] Adaptive agents that tweak strategy based on past performance
+## Project Features
 
-## Tech Stack
-- **Python** (>=3.11)
-- **SimPy** – discrete event simulation engine
-- **Streamlit** – UI for dashboards
-- **Plotly / Matplotlib** – charts and visuals
-- **Poetry** – dependency and environment manager
-- **Pandas / NumPy** – for data manipulation
+- **Realistic SimPy-based discrete event simulation** (no blockchains were harmed).
+- **Agent-based bot logic** with customizable aggressiveness, latency, and reaction time.
+- **Win Rate**: Not every trade is a winner! Simulate missed trades and fails.
+- **Interactive Streamlit dashboard**: 
+  - Two side-by-side charts (PnL per trade, cumulative PnL)
+  - Results table with rainbow coloring
+  - Metrics: win rate, biggest win/loss, latency, total PnL, more
+  - Download/share buttons
+  - Degen vibes, meme images, and random goblin commentary
+- **Code is readable and hackable** — build your own strategies, add more exchanges, go nuts.
+
+---
 
 ## Project Structure
-```
+
+```text
 latency-arbitrage-simulator/
-├── src/                   # core simulation code lives here
-│   └── main.py            # entry point for simulating latency arbitrage
-│
-├── notebooks/             # Jupyter notebooks for quick testing & analysis
-│
-├── tests/                 # pytest-based unit tests
-│
-├── pyproject.toml         # project metadata, dependencies, config (poetry)
-├── poetry.lock            # exact locked versions of all dependencies
-├── README.md              # you're looking at it 
-└── .gitignore             # keep it clean, keep it lean
+├── app.py              # Streamlit dashboard (main entrypoint!)
+├── src/                # core simulator logic
+│   └── simulator/
+│       ├── __init__.py
+│       ├── core.py
+│       ├── exchange.py
+│       ├── strategy.py
+│       └── utils.py
+├── notebooks/
+│   └── exploration.ipynb
+├── tests/
+│   └── test_core.py
+├── poetry.lock
+├── pyproject.toml
+└── README.md
 
-```
+## Tech Stack
 
-##  Why This Project?
-I created this as part of a tailored application to demonstrate my skills in simulation modeling, trading systems, and creative problem solving. It’s a way to shocase my passion (obsession?) with building it from scratch, asking questions, spiralling occasionally, and designing things that are beautiful and insightful. It’s my version of a digital playground. Somehow I still manage to work out 6 days a week...
+- **Python 3.11+**
+- **SimPy** — discrete event simulation engine
+- **Streamlit** — interactive dashboard UI
+- **Plotly** — fun, interactive charts
+- **Pandas** — results wrangling, dataframes, CSV downloads
+- **Poetry** — dependency management (because I’m allergic to requirements.txt chaos)
+- **Jupyter** (optional) — for exploratory nerding
 
-![image](https://github.com/user-attachments/assets/1f9295cb-0bc4-44c1-9721-db524c257df4)
+---
 
-##  Want to Collaborate or Hire Me?
-I’m Gabriella Mansur — a mechanical engineer turned data engineer turned crypto degen turned god knows what, creative problem solver, and endlessly curious mind. HMU! (by text or mail - im still a millennial and weirdly terrified of unexpected calls) [LinkedIn](https://linkedin.com/in/gabriellamansur)
+## Roadmap
 
-Disclaimer: No actual shitcoins were harmed in the making of this repo.
+### Core Simulator
+- [x] Simulate two exchanges with customizable latency
+- [x] Bot agent with tunable reaction speed and win rate
+- [x] Logging, stats, export
+- [x] Streamlit dashboard
+
+### Visualization & UX
+- [x] Live charts (PnL, cumulative)
+- [x] Results table and downloads
+- [x] Meme commentary & visual cues
+- [x] ELI5/dummy mode instructions
+
+### Experiments/Future
+- [ ] Add more exchange types (DEXs, CEXs, unhinged fantasy ones)
+- [ ] Multi-agent tournaments
+- [ ] Real data feed integration
+- [ ] Machine learning strategies (someday...)
+- [ ] Visualize missed arb opportunities and order failures
+
+---
+
+## Why This Project?
+
+I built this as a public playground to show off my simulation modeling, trading systems, and creative approach to coding and dashboards (and also to cope with the trauma of missed trades and rekt bags).  
+It’s equal parts nerdy flex, learning experiment, and meme-powered demo.
+
+---
+
+## About Me
+
+I'm Gabriella Mansur:  
+Mechanical engineer → data engineer → trading goblin → code witch.  
+I love turning chaos into structured, explorable, and beautiful things that help people learn and laugh.  
+
+*Disclaimer: No real money, assets, or meme coins are at risk. All pain is simulated. All wins are virtual. All fun is real.*
+
+---
+
+## Meme Gallery
+
+![nyan cat](https://media.tenor.com/rI_0O_9AJ5sAAAAj/nyan-cat-poptart-cat.gif)
+
+---
