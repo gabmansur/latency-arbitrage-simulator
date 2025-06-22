@@ -1,5 +1,5 @@
-import simpy
-from simulator.utils import log_event
+import random
+from src.simulator.utils import log_event
 
 class ArbitrageAgent:
     def __init__(self, env, name, exchanges, latency_matrix, reaction_time=1, threshold=0.2, results=None):
@@ -31,6 +31,8 @@ class ArbitrageAgent:
 
     def execute_trade(self, buy_ex_name, sell_ex_name, spread):
         latency = self.latency_matrix.get(buy_ex_name, {}).get(sell_ex_name, 0)
+        is_win = random.random() < self.win_rate
+        pnl = spread if is_win else -spread  # Or 0, or add random loss for realism
         yield self.env.timeout(latency + self.reaction_time)
         log_event(
             self.env,
@@ -43,6 +45,8 @@ class ArbitrageAgent:
             "spread": spread,
             "latency": latency,
             "reaction_time": self.reaction_time,
+            "pnl": pnl,
+            "success": is_win,
         })
 
     def run(self):
