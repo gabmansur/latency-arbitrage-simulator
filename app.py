@@ -51,28 +51,31 @@ st.markdown(
     '[View the GitHub Repo](https://github.com/gabmansur/latency-arbitrage-simulator) &nbsp; | &nbsp; ⭐ Star it to power up the goblin energy!'
 )
 
-with st.expander("🍼 Explain Like I'm 5 (The Real Dummy Guide)"):
-    st.markdown("""
-    > **What is this?**
-    >
-    > Imagine you have two lemonade stands, but each one tells you the price of lemonade at a slightly different time.  
-    > If you notice the price is lower at Stand A and higher at Stand B, you could buy lemonade at A and quickly sell it at B to make some money.  
-    >
-    > But… if you’re too slow, the prices might change before you can finish your trade, and you miss out.  
-    > The *faster* you are, the more likely you win!
-    >
-    > This simulator lets you be the sneaky lemonade goblin, setting how fast you are, how greedy you want to be, and how quickly you spot deals. Then you watch to see if you score a win, or get beat by the lag monsters!
-    >
-    > 🦄 **Try it! Play with the sliders. Hit ‘Run Simulation’. See if you get rich or rekt!**
-    """)
+col1, col2, col3, col4 = st.columns([1, 1, 1, 1])  # Centered, middle column twice as wide
 
-with st.expander("🧙‍♀️ What's 'Win Rate' and why should I care?"):
-    st.markdown("""
-    **Win Rate** is how often your bot actually succeeds when it tries an arbitrage.
-    - If your bot has a 100% win rate, it always snipes the trade (like a market wizard 🧙‍♂️).
-    - If it's lower, sometimes it loses because the opportunity disappears (prices change, bots are slow, or you got frontrun).
-    - In real markets, success is never guaranteed, and sometimes, even the fastest bots lose.
-    """)
+with col2:
+    with st.expander("🍼 Explain Like I'm 5 (The Real Dummy Guide)"):
+        st.markdown("""
+        **What is this?**
+        
+         Imagine you have two lemonade stands, but each one tells you the price of lemonade at a slightly different time.  
+         If you notice the price is lower at Stand A and higher at Stand B, you could buy lemonade at A and quickly sell it at B to make some money.  
+        
+         But… if you’re too slow, the prices might change before you can finish your trade, and you miss out.  
+         The *faster* you are, the more likely you win!
+        
+         This simulator lets you be the sneaky lemonade goblin, setting how fast you are, how greedy you want to be, and how quickly you spot deals. Then you watch to see if you score a win, or get beat by the lag monsters!
+        
+         >🦄 **Try it! Play with the sliders. Hit ‘Run Simulation’. See if you get rich or rekt!**
+        """)
+with col3:
+    with st.expander("🧙‍♀️ What's 'Win Rate' and why should I care?"):
+        st.markdown("""
+        **Win Rate** is how often your bot actually succeeds when it tries an arbitrage.
+        - If your bot has a 100% win rate, it always snipes the trade (like a market wizard 🧙‍♂️).
+        - If it's lower, sometimes it loses because the opportunity disappears (prices change, bots are slow, or you got frontrun).
+        - In real markets, success is never guaranteed, and sometimes, even the fastest bots lose.
+        """)
 
 
 # ---  Connected "How to Play" + Dummy Guide + Run Button ---
@@ -122,25 +125,17 @@ with st.sidebar:
         "Bot Win Rate Mode",
         [
             "Always Win (100%)",
-            "Random Win Rate (50-100%)",
-            "Set Custom (%)"
+            "Random Win Rate"
         ],
         help="""
             How often your bot actually 'wins' the trade:
             - 100% = Theoretical perfect arbitrage (God Mode).
             - Random = Simulates real-world chaos (sometimes you snipe, sometimes you get rekt!).
-            - Custom = You choose the win probability (more risk, more fun).
             In real life, even 'riskless' arb can lose due to delays, failures, or sneaky competitors.
         """
     )
 
-    if win_rate_mode == "Set Custom (%)":
-        win_rate = st.slider(
-            "Win Rate (%)",
-            50, 100, 90,
-            help="How often your bot succeeds when it spots a trade. Lower win rate = more failed trades (and tears)."
-        )
-    elif win_rate_mode == "Always Win (100%)":
+    if win_rate_mode == "Always Win (100%)":
         win_rate = 100
     else:
         win_rate = random.randint(50, 100)
