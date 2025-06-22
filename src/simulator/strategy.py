@@ -2,14 +2,15 @@ import random
 from src.simulator.utils import log_event
 
 class ArbitrageAgent:
-    def __init__(self, env, name, exchanges, latency_matrix, reaction_time=1, threshold=0.2, results=None):
+    def __init__(self, env, name, exchanges, latency_matrix, config, results=None):
         self.env = env
         self.name = name
         self.exchanges = exchanges
         self.latency_matrix = latency_matrix
-        self.reaction_time = reaction_time
-        self.threshold = threshold
+        self.reaction_time = config.get("reaction_time", 0.1)
+        self.threshold = config.get("price_diff_threshold", 0.2)
         self.results = results if results is not None else []
+        self.win_rate = config.get("win_rate", 0.9)
         self.env.process(self.run())
 
     def observe_prices(self):
@@ -32,20 +33,19 @@ class ArbitrageAgent:
     def execute_trade(self, buy_ex_name, sell_ex_name, spread):
         latency = self.latency_matrix.get(buy_ex_name, {}).get(sell_ex_name, 0)
         is_win = random.random() < self.win_rate
-        pnl = spread if is_win else -spread  # Or 0, or add random loss for realism
+        pnl = spread if is_win else -abs(spread)  # lose the same amount if fail
         yield self.env.timeout(latency + self.reaction_time)
         log_event(
             self.env,
-            f"{self.name} arbitraged {buy_ex_name} -> {sell_ex_name} | Spread: ${spread:.4f}"
+            f"{self.name} arbitraged {buy_ex_name} -> {sell_ex_name} | {'WIN' if is_win else 'FAIL'} | Spread: ${spread:.4f} | PnL: ${pnl:.4f}"
         )
         self.results.append({
             "timestamp": self.env.now,
             "buy_from": buy_ex_name,
             "sell_to": sell_ex_name,
-            "spread": spread,
+            "pnl": pnl,  # THIS is your profit/loss per trade
             "latency": latency,
             "reaction_time": self.reaction_time,
-            "pnl": pnl,
             "success": is_win,
         })
 
@@ -55,4 +55,4 @@ class ArbitrageAgent:
             buy_ex, sell_ex, spread = self.detect_opportunity(prices)
             if buy_ex and sell_ex:
                 yield self.env.process(self.execute_trade(buy_ex, sell_ex, spread))
-            yield self.env.timeout(0.1)  # Check every 100ms
+            yield self.env.timeout(0.1)

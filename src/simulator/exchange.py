@@ -1,6 +1,6 @@
 import simpy
 import random
-from simulator.utils import log_event
+from src.simulator.utils import log_event
 
 class Exchange:
     def __init__(self, env, name, base_price=100.0, jitter=0.5, update_interval=0.2):

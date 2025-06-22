@@ -169,10 +169,10 @@ if run and results and len(results) > 0:
     total_trades = len(df)
     num_wins = (df['success'] == True).sum()
     win_rate = 100 * num_wins / total_trades if total_trades > 0 else 0
-    total_pnl = df['spread'].sum()
+    total_pnl = df['pnl'].sum()
     avg_latency = df['latency'].mean()
-    biggest_win = df['spread'].max()
-    biggest_loss = df['spread'].min()
+    biggest_win = df['pnl'].max()
+    biggest_loss = df['pnl'].min()
 
     colA, colB, colC, colD, colE = st.columns(5)
     colA.metric("Total Trades", total_trades)
@@ -185,12 +185,12 @@ if run and results and len(results) > 0:
     c1, c2 = st.columns(2)
     with c1:
         st.plotly_chart(
-            px.line(df, y="spread", title="PnL per Trade", labels={"spread": "Profit ($)"}),
+            px.line(df, y="pnl", title="PnL per Trade", labels={"pnl": "Profit/Loss ($)"}),
             use_container_width=True
         )
     with c2:
         st.plotly_chart(
-            px.line(df, y=df['spread'].cumsum(), title="Cumulative PnL Over Time", labels={"y": "Total Profit ($)"}),
+            px.line(df, y=df['pnl'].cumsum(), title="Cumulative PnL Over Time", labels={"y": "Total Profit ($)"}),
             use_container_width=True
         )
 
